@@ -52,7 +52,8 @@ class RegisterForm(FlaskForm):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    questions = Question.query.all()
+    return render_template('index.html', questions=questions)
 
 @app.route('/home')
 @login_required
