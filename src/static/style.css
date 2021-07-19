@@ -21,3 +21,13 @@
 .ques #q_con {
     font-size: 1.2rem;
 }
+
+#ad {
+    color: red;
+    text-decoration: none;
+}
+
+#ad:hover {
+    color: red;
+    text-decoration: underline;
+}

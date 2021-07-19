@@ -85,6 +85,16 @@ def answer(id):
     db.session.commit()
     return redirect(url_for("home"))
 
+@app.route('/delete_ans/<int:id>')
+def delete_ans(id):
+    ans = Answer.query.get_or_404(id)
+    if ans.author == current_user.username:
+        db.session.delete(ans)
+        db.session.commit()
+        return redirect(url_for("home"))
+    else:
+        return "You cannot delete this post | <a href='/home'> Home </a>"
+
 @app.route('/question/<int:id>')
 @login_required
 def question(id):

@@ -49,6 +49,9 @@
             {% if a.q_id == q.id %}
             <ul>
                 <li><p class="card-text">{{ a.author }}:- {{ a.ans }}</p></li>
+                {% if a.author == user %}
+                <a id="ad" href='/delete_ans/{{ a.id }}'>Delete</a>
+                {% endif %}
             </ul>
             {% endif %}
             {% endfor %}
