@@ -1,7 +1,7 @@
 # StudyForums
 StudyForums is an app written in python's flask where students and ask question and given answers to the question that are asked by other students.
 
-**Online at:- studyforums.pythonanywhere.com**
+Online at:- https://studyforums.pythonanywhere.com/
 
 ## Running on local machine
 - Install python and pip
