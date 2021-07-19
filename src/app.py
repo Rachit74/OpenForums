@@ -89,7 +89,8 @@ def answer(id):
 @login_required
 def question(id):
     question = Question.query.get_or_404(id)
-    return render_template("question.html", q=question, user=current_user.username)
+    answers = Answer.query.all()
+    return render_template("question.html", q=question, user=current_user.username, answers=answers)
 
 @app.route('/delete/<int:id>')
 def delete_q(id):
