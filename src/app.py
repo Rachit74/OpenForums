@@ -1,3 +1,4 @@
+from sys import audit
 from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm 
@@ -30,7 +31,7 @@ class Question(db.Model):
 
 class Answer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(5000))
+    ans = db.Column(db.String(5000))
     author = db.Column(db.String(20))
     q_id = db.Column(db.Integer)
 
@@ -72,6 +73,17 @@ def ask():
         return redirect(url_for("home"))
     else:
         return render_template("ask.html")
+
+@app.route('/ans/<int:id>', methods=["POST", "GET"])
+def answer(id):
+    question = Question.query.get_or_404(id)
+    ans = request.form['content']
+    author = current_user.username
+    q_id = question.id
+    ans = Answer(ans=ans, author=author, q_id=q_id)
+    db.session.add(ans)
+    db.session.commit()
+    return redirect(url_for("home"))
 
 @app.route('/question/<int:id>')
 @login_required
