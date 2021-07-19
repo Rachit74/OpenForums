@@ -79,6 +79,16 @@ def question(id):
     question = Question.query.get_or_404(id)
     return render_template("question.html", q=question, user=current_user.username)
 
+@app.route('/delete/<int:id>')
+def delete_q(id):
+    question = Question.query.get_or_404(id)
+    if question.author == current_user.username:
+        db.session.delete(question)
+        db.session.commit()
+        return redirect(url_for("home"))
+    else:
+        return "You cannot delete this post | <a href='/home'> Home </a>"
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
