@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm 
 from wtforms import StringField, PasswordField, BooleanField
@@ -56,7 +56,21 @@ def index():
 @app.route('/home')
 @login_required
 def home():
-    return render_template("home.html")
+    questions = Question.query.all()
+    return render_template("home.html", questions=questions)
+
+@app.route('/ask', methods=["POST", "GET"])
+def ask():
+    if request.method == "POST":
+        title = request.form['title']
+        content = request.form['content']
+        author = current_user.username
+        question = Question(title=title, content=content, author=author)
+        db.session.add(question)
+        db.session.commit()
+        return redirect(url_for("home"))
+    else:
+        return render_template("ask.html")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
