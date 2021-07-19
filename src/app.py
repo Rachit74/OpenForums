@@ -60,6 +60,7 @@ def home():
     return render_template("home.html", questions=questions)
 
 @app.route('/ask', methods=["POST", "GET"])
+@login_required
 def ask():
     if request.method == "POST":
         title = request.form['title']
@@ -71,6 +72,12 @@ def ask():
         return redirect(url_for("home"))
     else:
         return render_template("ask.html")
+
+@app.route('/question/<int:id>')
+@login_required
+def question(id):
+    question = Question.query.get_or_404(id)
+    return render_template("question.html", q=question, user=current_user.username)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

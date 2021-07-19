@@ -12,3 +12,12 @@
 .card {
     margin: 50px;
 }
+
+.ques {
+    margin: 50px;
+    padding: 10px;
+}
+
+.ques #q_con {
+    font-size: 1.2rem;
+}
