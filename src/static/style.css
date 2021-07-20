@@ -48,20 +48,20 @@
         margin-left: 100px;
         margin-right: 100px;
     }
-  }
+}
 
-  @media only screen and (max-width: 500px) {
-    #ask {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
+@media only screen and (max-width: 500px) {
+#ask {
+    margin-left: 10px;
+    margin-right: 10px;
+}
 
-    .card {
-        margin: 10px;
-        margin-bottom: 20px;
-    }
+.card {
+    margin: 10px;
+    margin-bottom: 20px;
+}
 
-    .intro {
-        margin: 10px;
-    }
-  }
+.intro {
+    margin: 10px;
+}
+}
