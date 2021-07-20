@@ -1,5 +1,5 @@
 from sys import audit
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm 
 from wtforms import StringField, PasswordField, BooleanField
@@ -124,7 +124,7 @@ def login():
                 login_user(user, remember=form.remember.data)
                 return redirect(url_for('home'))
 
-        return '<h1>Invalid username or password</h1>'
+        return render_template('login.html', err="Invalid credentials! Please try again.", form=form)
         #return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
 
     return render_template('login.html', form=form)
