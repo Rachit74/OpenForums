@@ -6,5 +6,5 @@ Online at:- https://studyforums.pythonanywhere.com/
 ## Running on local machine
 - Install python and pip
 - Install all the packaged using `pip install -r requirements.txt`
-- Go to the folder where you kept `src` folder and run the command `python src/app.py`
+- Go to the folder where you kept `studyforums` folder and run the command `python run.py`
 - Go to http://127.0.0.1:5000/ to see the app running on your local host
