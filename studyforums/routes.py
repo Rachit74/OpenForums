@@ -45,7 +45,7 @@ def answer(id):
 @app.route('/delete_ans/<int:id>')
 def delete_ans(id):
     ans = Answer.query.get_or_404(id)
-    if ans.author == current_user.username:
+    if ans.author == current_user.username or current_user.username == "admin":
         db.session.delete(ans)
         db.session.commit()
         return redirect(url_for("home"))
@@ -62,7 +62,7 @@ def question(id):
 @app.route('/delete/<int:id>')
 def delete_q(id):
     question = Question.query.get_or_404(id)
-    if question.author == current_user.username:
+    if question.author == current_user.username or current_user.username == "admin":
         db.session.delete(question)
         db.session.commit()
         return redirect(url_for("home"))

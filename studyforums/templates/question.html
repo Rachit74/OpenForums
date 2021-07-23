@@ -33,7 +33,7 @@
           <h5 class="card-title">{{ q.title }}</h5>
           <p class="card-text">{{ q.content }}</p>
           <p class="card-text">- Asked by {{ q.author }}</p>
-          {% if q.author == user %}
+          {% if q.author == user or user == 'admin' %}
           <a href="/delete/{{ q.id }}" class="btn btn-outline-danger">Delete</a>
           {% endif %}
           <p></p>
@@ -48,7 +48,7 @@
             {% if a.q_id == q.id %}
             <ul>
                 <li><p class="card-text">{{ a.author }}:- {{ a.ans }}</p></li>
-                {% if a.author == user %}
+                {% if a.author == user or user == "admin" %}
                 <a id="ad" href='/delete_ans/{{ a.id }}'>Delete</a>
                 {% endif %}
             </ul>
