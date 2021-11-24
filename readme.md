@@ -1,3 +1,5 @@
+# ⚠ Project Abandoned ⚠
+open a issue if want to takeover
 # StudyForums
 StudyForums is an app written in python's flask where students and ask question and given answers to the question that are asked by other students.
 
