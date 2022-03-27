@@ -1,0 +1,1 @@
+I am changing the app fro StudyForums to OpeanForums (the names tells what the app is about), StudyForums is no longer hosted and I wanted to make an forums app too so i decided to modify this app only as it was already half built and i would have to spend a lot less time on it.
